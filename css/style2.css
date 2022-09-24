@@ -189,7 +189,23 @@
 }
 .main .status .count,
 .main .status .aim{
+    position: relative;
     color: var(--Font-color);
+}
+.main .status .count .return{
+    position: absolute;
+    left: -52px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 32px;
+    color: var(--Font-color1);
+    cursor: pointer;
+}
+.main .status .count .return i{
+    transition: all 0.75s ease-in-out;
+}
+.main .status .count .return:hover i{
+    transform: rotate(-360deg);
 }
 .main .status .count span,
 .main .status .aim span{
@@ -215,6 +231,11 @@
     .main .status .aim h1{
         text-align: center;
     }
+    .main .status .count .return {
+        left: 57%;
+        transform: translateX(-50%);
+        bottom: -33px;
+    }
 }
 /* press style  */
 .press{
@@ -234,6 +255,10 @@
     color: var(--Font-color2);
     border-radius: 208px;
     cursor: pointer;
+}
+.press h1 #text{
+    padding: 36px;
+    line-height: 1.8;
 }
 .press h1 .after{
     position: absolute;
