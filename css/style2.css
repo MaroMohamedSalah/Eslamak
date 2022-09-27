@@ -231,10 +231,13 @@
     .main .status .aim h1{
         text-align: center;
     }
-    .main .status .count .return {
+    .main .status .count .return{
         left: 57%;
         transform: translateX(-50%);
-        bottom: -33px;
+        bottom: -22px;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
     }
 }
 /* press style  */

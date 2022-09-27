@@ -15,14 +15,25 @@ let returnToZero = document.getElementById('return');
 let Tasbeeh = {
     text : '' ,
     count : 0 ,
+    mainCount: 0,
     aim : 0 
 };
 // add from localStorage 
 if(localStorage.getItem('Tasbeeh1')){
     addFromLocalStorage('Tasbeeh1');
+    handelPressOne('Tasbeeh1');
 }
 if(localStorage.getItem('Tasbeeh2')){
     addFromLocalStorage('Tasbeeh2');
+    handelPressOne('Tasbeeh2');
+}
+if(localStorage.getItem('Tasbeeh3')){
+    addFromLocalStorage('Tasbeeh3');
+    handelPressOne('Tasbeeh3');
+}
+if(localStorage.getItem('Tasbeeh4')){
+    addFromLocalStorage('Tasbeeh4');
+    handelPressTwo('Tasbeeh4');
 }
 
 if(Tasbeeh.text === '' && Tasbeeh.count === 0 && Tasbeeh.aim === 0){
@@ -45,9 +56,24 @@ one.onclick = () => {
         handelPressOne('Tasbeeh1')
     }
 }
-// two.onclick () => {
-
-// }
+two.onclick = () => {
+    main.style.display = 'block'
+    if(localStorage.getItem('Tasbeeh4')){
+        addFromLocalStorage('Tasbeeh4');
+    }else{
+        Tasbeeh.count = '0';
+        Tasbeeh.text = '';
+        Tasbeeh.aim = '0';
+        Tasbeeh.text ='سُـبْحانَ اللهِ'  ;
+        Tasbeeh.aim = 33 ;
+        setInterval(() => {
+            pressText.textContent = Tasbeeh.text ;
+            aim.textContent = Tasbeeh.aim ;
+            count.textContent = Tasbeeh.count ;
+        }, 1000);
+        handelPressTwo('Tasbeeh4')
+    }
+}
 three.onclick = () => {
     main.style.display = 'block'
     if(localStorage.getItem('Tasbeeh2')){
@@ -64,25 +90,28 @@ three.onclick = () => {
         handelPressOne('Tasbeeh2')
     }
 }
-// four.onclick () => {
-
-// }
-// add new 
-newMain.onclick = () =>{
-    // localStorage.removeItem('Tasbeeh1');
-    Tasbeeh.count = '0';
-    Tasbeeh.text = '';
-    Tasbeeh.aim = '0';
-    window.scrollTo = 0;
-    setTimeout(() => {
-        location.reload();
-    }, 1000);
+four.onclick = () => {
+    main.style.display = 'block'
+    if(localStorage.getItem('Tasbeeh3')){
+        addFromLocalStorage('Tasbeeh3');
+    }else{
+        Tasbeeh.count = '0';
+        Tasbeeh.text = '';
+        Tasbeeh.aim = '0';
+        Tasbeeh.text  = ' سبحان الله وبحمده، سبحان الله العظيم' ;
+        Tasbeeh.aim = 100 ;
+        pressText.textContent = Tasbeeh.text ;
+        aim.textContent = Tasbeeh.aim ;
+        count.textContent = Tasbeeh.count ;
+        handelPressOne('Tasbeeh3')
+    }
 }
 function addToLocalStorage(params , name) {
     localStorage.setItem(name , JSON.stringify(params))
 }
 
 function handelPressOne(name) {
+    console.log("handel one")
     press.onclick = () =>{
         fill.style.width = '100%'
         fill.style.height = '100%'
@@ -101,12 +130,78 @@ function handelPressOne(name) {
             addToLocalStorage(Tasbeeh , name)
         }
     }
+    // add new 
+    newMain.onclick = () =>{
+        newOne(name);
+    }
 }
-
+function handelPressTwo(name){
+    console.log("handel two")
+    press.onclick = () =>{
+        Tasbeeh.mainCount ++;
+        console.log(Tasbeeh.mainCount)
+        fill.style.width = '100%'
+        fill.style.height = '100%'
+        setTimeout(() => {
+            fill.style.width = '0'
+            fill.style.height = '0'
+        }, 300);
+        if(Tasbeeh.count < Tasbeeh.aim){
+            Tasbeeh.count++ ;
+            count.textContent = Tasbeeh.count
+            if(Tasbeeh.mainCount === 33){
+                Tasbeeh.count = 0 
+                Tasbeeh.text = 'الحَمْـدُ لله'
+                addToLocalStorage(Tasbeeh , name)
+            }else if(Tasbeeh.mainCount === 66){
+                Tasbeeh.count = 0 
+                Tasbeeh.text =' اللهُ أكْـبَر'
+                addToLocalStorage(Tasbeeh , name)
+            }else if(Tasbeeh.mainCount === 99){
+                Tasbeeh.count = 0;
+                Tasbeeh.mainCount = 0;
+                Tasbeeh.text  = ' لا إلهَ إلاّ اللّهُ وَحْـدَهُ لا شريكَ لهُ، لهُ الملكُ ولهُ الحَمْد، وهُوَ على كُلّ شَيءٍ قَـدير'
+                Tasbeeh.aim = 1 ;
+                addToLocalStorage(Tasbeeh , name)
+            }
+            addToLocalStorage(Tasbeeh , name)
+        }
+        // add new 
+        newMain.onclick = () =>{
+            newOne(name);
+        }
+        returnToZero.onclick = () => {
+            Tasbeeh.count = 0 ;
+            count.textContent = Tasbeeh.count
+            if(Tasbeeh.mainCount < 33){
+                Tasbeeh.mainCount = 0;
+            }
+            else if(Tasbeeh.mainCount > 33){
+                Tasbeeh.mainCount = 33 ;
+            }else if(Tasbeeh.mainCount > 66){
+                Tasbeeh.mainCount = 66
+            }else{
+                Tasbeeh.mainCount = 99 ;
+            }
+            addToLocalStorage(Tasbeeh , name)
+        }
+    }
+}
 function addFromLocalStorage(key) {
     Tasbeeh = JSON.parse(localStorage.getItem(key));
     pressText.textContent = Tasbeeh.text ;
     aim.textContent = Tasbeeh.aim ;
     count.textContent = Tasbeeh.count ;
     handelPressOne(key);
+}
+
+function newOne(params){
+        localStorage.removeItem(params);
+        Tasbeeh.count = '0';
+        Tasbeeh.text = '';
+        Tasbeeh.aim = '0';
+        window.scrollTo = 0;
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
 }
