@@ -262,6 +262,10 @@
 .press h1 #text{
     padding: 36px;
     line-height: 1.8;
+    text-align: center;
+}
+.press h1 #text::selection {
+    background-color: var(--BackGround3);
 }
 .press h1 .after{
     position: absolute;
@@ -282,12 +286,23 @@
         font-size: 20px;
     }
 }
+/* fadl style  */
+.main .fadl h3{
+    margin: 64px auto;
+    border: 1px solid;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.2;
+    font-size: 20px;
+    color: var(--Font-color2);
+    opacity: 0;
+}
 /* new style  */
 .new{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 52px;
+    margin-top: 52px;
     font-size: 17px;
     color: var(--Font-color);
 }

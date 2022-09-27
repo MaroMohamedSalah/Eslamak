@@ -48,7 +48,7 @@ one.onclick = () => {
         Tasbeeh.count = '0';
         Tasbeeh.text = '';
         Tasbeeh.aim = '0';
-        Tasbeeh.text ='اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبيِّنَا مُحَمَّدٍ' ;
+        Tasbeeh.text = ' اللَّهُمَّ صَلِّ علَى مُحَمَّدٍ، وعلَى آلِ مُحَمَّدٍ، كما صَلَّيْتَ علَى آلِ إبْرَاهِيمَ، إنَّكَ حَمِيدٌ مَجِيدٌ' ;
         Tasbeeh.aim = 1000 ;
         pressText.textContent = Tasbeeh.text ;
         aim.textContent = Tasbeeh.aim ;
@@ -70,7 +70,7 @@ two.onclick = () => {
             pressText.textContent = Tasbeeh.text ;
             aim.textContent = Tasbeeh.aim ;
             count.textContent = Tasbeeh.count ;
-        }, 1000);
+        }, 300);
         handelPressTwo('Tasbeeh4')
     }
 }
