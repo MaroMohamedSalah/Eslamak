@@ -84,6 +84,7 @@
 .options{
     /* height: 76vh; */
     min-height: 76vh;
+    margin-bottom: 30px;
 }
 .options .container{
     height: 100%;
@@ -289,13 +290,14 @@
 /* fadl style  */
 .main .fadl h3{
     margin: 64px auto;
-    border: 1px solid;
-    padding: 20px;
+    border: 3px solid;
+    padding: 41px;
     border-radius: 10px;
-    line-height: 1.2;
-    font-size: 20px;
+    line-height: 1.8;
+    font-size: 22px;
     color: var(--Font-color2);
     opacity: 0;
+    transition: all 0.75s ease-in-out;
 }
 /* new style  */
 .new{

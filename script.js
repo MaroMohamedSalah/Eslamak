@@ -12,28 +12,43 @@ let pressText = document.getElementById('text')
 let newMain = document.getElementById('new');
 let fill = document.getElementById('fill');
 let returnToZero = document.getElementById('return');
+let fadl = document.getElementById('fadlText');
 let Tasbeeh = {
     text : '' ,
     count : 0 ,
     mainCount: 0,
     aim : 0 
 };
+let fdl = [
+    'إِنَّ أَقْرَبَكُمْ مِنِّي يَوْمَ الْقِيَامَةِ فِي كُلِّ مَوْطِنٍ أَكْثَرُكُمْ عَلَيَّ صَلاةً فِي الدُّنْيَا ، مَنْ صَلَّى عَلَيَّ مِائَةَ مَرَّةٍ فِي يَوْمِ الْجُمُعَةِ وَلَيْلَةِ الْجُمُعَةِ قَضَى اللَّهُ لَهُ مِائَةَ حَاجَةٍ، سَبْعِينَ مِنْ حَوَائِجِ الآخِرَةِ وَثَلاثِينَ مِنْ حَوَائِجِ الدُّنْيَا، ثُمَّ يُوَكِّلُ اللَّهُ بِذَلِكَ مَلَكًا يُدْخِلُهُ فِي قَبْرِهِ كَمَا يُدْخِلُ عَلَيْكُمُ الْهَدَايَا ، يُخْبِرُنِي مَنْ صَلَّى عَلَيَّ بِاسْمِهِ وَنَسَبِهِ إِلَى عَشِيرَتِهِ، فَأُثْبِتُهُ عِنْدِي فِي صَحِيفَةٍ بَيْضَاءَ',
+    'عن أبي هريرة رضي الله عنه عن رسول الله- صلى الله عليه وسلم-: «مَنْ سَبَّحَ الله فِي دُبُرِ كُلِّ صَلاةٍ ثَلاثًا وَثَلاثِينَ، وَحَمِدَ الله ثَلاثًا وَثَلاثِينَ، وَكَبَّرَ الله ثَلاثًا وَثَلاثِينَ، فَتِلْكَ تِسْعَةٌ وَتِسْعُونَ، وَقَالَ تَمَامَ المِائَةِ: لا إلَهَ إلَّا الله وَحْدَهُ لا شَرِيكَ لَهُ، لَهُ الملْكُ وَلَهُ الحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَديرٌ غُفِرَتْ خَطَايَاهُ وَإنْ كَانَتْ مِثْلَ زَبَدِ البَحْرِ». أخرجه مسلم، ولكن إن كانت هناك صلوات فائتة فعلنا أن نقضيها أولًا ثم بعد ذلك نتفرغ لختم الصلاة.',
+    'قول رسول الله - صلى الله عليه وسلم-: «مَنْ قال لا إلهَ إلَّا اللهُ وحدَهُ لَا شرِيكَ لَهُ، لَهُ الملْكُ، ولَهُ الحمْدُ، وهُوَ عَلَى كُلِّ شيءٍ قديرٌ، فِي يومٍ مائَةَ مرةٍ، كانتْ لَهُ عِدْلَ عشرِ رقابٍ، وكُتِبَتْ لَهُ مائَةُ حسنَةٍ، ومُحِيَتْ عنه مائَةُ سيِّئَةٍ، وكانَتْ لَهُ حِرْزًا منَ الشيطانِ يَوْمَهُ ذَلِكَ حتى يُمْسِيَ، ولم يأتِ أحدٌ بأفضلَ مِمَّا جاءَ بِهِ، إلَّا أحدٌ عَمِلَ عملًا أكثرَ مِنْ ذلِكَ».',
+    'ورد عن الرسول صلى الله عليه وسلم أنه قال: (من قالَ سبحانَ اللهِ وبحمدهِ في يومٍ مائةُ مرَّةٍ حطتْ خطاياهُ وإن كانتْ مثلَ زبدِ البحرِ)'
+]
 // add from localStorage 
 if(localStorage.getItem('Tasbeeh1')){
     addFromLocalStorage('Tasbeeh1');
     handelPressOne('Tasbeeh1');
+    fadl.style.opacity = '0';
+    handelFadl(1);
 }
 if(localStorage.getItem('Tasbeeh2')){
     addFromLocalStorage('Tasbeeh2');
     handelPressOne('Tasbeeh2');
+    fadl.style.opacity = '0';
+    handelFadl(2);
 }
 if(localStorage.getItem('Tasbeeh3')){
     addFromLocalStorage('Tasbeeh3');
     handelPressOne('Tasbeeh3');
+    fadl.style.opacity = '0';
+    handelFadl(3);
 }
 if(localStorage.getItem('Tasbeeh4')){
     addFromLocalStorage('Tasbeeh4');
     handelPressTwo('Tasbeeh4');
+    fadl.style.opacity = '0';
+    handelFadl(4);
 }
 
 if(Tasbeeh.text === '' && Tasbeeh.count === 0 && Tasbeeh.aim === 0){
@@ -49,12 +64,14 @@ one.onclick = () => {
         Tasbeeh.text = '';
         Tasbeeh.aim = '0';
         Tasbeeh.text = ' اللَّهُمَّ صَلِّ علَى مُحَمَّدٍ، وعلَى آلِ مُحَمَّدٍ، كما صَلَّيْتَ علَى آلِ إبْرَاهِيمَ، إنَّكَ حَمِيدٌ مَجِيدٌ' ;
-        Tasbeeh.aim = 1000 ;
+        Tasbeeh.aim = 100 ;
         pressText.textContent = Tasbeeh.text ;
         aim.textContent = Tasbeeh.aim ;
         count.textContent = Tasbeeh.count ;
         handelPressOne('Tasbeeh1')
     }
+    fadl.style.opacity = '0';
+    handelFadl(1);
 }
 two.onclick = () => {
     main.style.display = 'block'
@@ -73,6 +90,8 @@ two.onclick = () => {
         }, 300);
         handelPressTwo('Tasbeeh4')
     }
+    fadl.style.opacity = '0';
+    handelFadl(2);
 }
 three.onclick = () => {
     main.style.display = 'block'
@@ -89,6 +108,8 @@ three.onclick = () => {
         count.textContent = Tasbeeh.count ;
         handelPressOne('Tasbeeh2')
     }
+    fadl.style.opacity = '0';
+    handelFadl(3);
 }
 four.onclick = () => {
     main.style.display = 'block'
@@ -105,6 +126,8 @@ four.onclick = () => {
         count.textContent = Tasbeeh.count ;
         handelPressOne('Tasbeeh3')
     }
+    fadl.style.opacity = '0';
+    handelFadl(4);
 }
 function addToLocalStorage(params , name) {
     localStorage.setItem(name , JSON.stringify(params))
@@ -204,4 +227,11 @@ function newOne(params){
         setTimeout(() => {
             location.reload();
         }, 1000);
+}
+
+function handelFadl(secNum) {       
+    setTimeout(() => {
+        fadl.style.opacity = '1'
+        fadl.textContent = fdl[secNum - 1]
+    }, 10000);
 }
