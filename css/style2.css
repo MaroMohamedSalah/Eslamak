@@ -288,6 +288,9 @@
     }
 }
 /* fadl style  */
+.main .fadl{
+    position: relative;
+}
 .main .fadl h3{
     margin: 64px auto;
     border: 3px solid;
@@ -298,6 +301,32 @@
     color: var(--Font-color2);
     opacity: 0;
     transition: all 0.75s ease-in-out;
+}
+.main .fadl .changeColor{
+    position: absolute;
+    top: 0;
+    right: -51px;
+}
+.main .fadl div div{
+    transform: translateX(-52px);
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    margin: 7px;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: all 0.75s ease-in-out;
+}
+.main .fadl div div:first-child{
+    background-color: var(--Font-color);
+}
+.main .fadl div div:nth-child(2){
+    background-color: var(--Font-color1);
+    transition: all 0.75s 0.5s ease-in-out;
+}
+.main .fadl div div:nth-child(3){
+    background-color: var(--Font-color2);
+    transition: all 0.75s 1s ease-in-out;
 }
 /* new style  */
 .new{

@@ -13,6 +13,9 @@ let newMain = document.getElementById('new');
 let fill = document.getElementById('fill');
 let returnToZero = document.getElementById('return');
 let fadl = document.getElementById('fadlText');
+let colorOne = document.getElementById("fontOne");
+let colorTwo = document.getElementById("fontTwo");
+let colorThree = document.getElementById("fontThree");
 let Tasbeeh = {
     text : '' ,
     count : 0 ,
@@ -233,5 +236,27 @@ function handelFadl(secNum) {
     setTimeout(() => {
         fadl.style.opacity = '1'
         fadl.textContent = fdl[secNum - 1]
+        handelColorChange();
     }, 10000);
+}
+console.log(colorOne)
+console.log(colorTwo)
+console.log(colorThree)
+function handelColorChange() {
+    colorOne.style.opacity = '1' ;
+    colorOne.style.transform = 'translateX(0)' ;
+    colorTwo.style.opacity = '1' ;
+    colorTwo.style.transform = 'translateX(0)' ;
+    colorThree.style.opacity = '1' ;
+    colorThree.style.transform = 'translateX(0)' ;
+
+    colorOne.onclick = () => {
+        fadl.style.color = 'var(--Font-color)' ;
+    }
+    colorTwo.onclick = () => {
+        fadl.style.color = 'var(--Font-color1)' ;
+    }
+    colorThree.onclick = () => {
+        fadl.style.color = 'var(--Font-color2)' ;
+    }
 }
