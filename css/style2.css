@@ -328,6 +328,14 @@
     background-color: var(--Font-color2);
     transition: all 0.75s 1s ease-in-out;
 }
+/* Small */
+@media only screen and (max-width: 768px){
+    .main .fadl .changeColor{
+        display: flex;
+        top: -50px;
+        right: 0px;
+    }
+}
 /* new style  */
 .new{
     display: flex;
