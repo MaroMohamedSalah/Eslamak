@@ -365,9 +365,80 @@
 .new h1:hover::after{
     width: 177px;
 }
+/* footer  */
+footer{
+    background-color: var(--BackGround2);
+    font-family: 'Inconsolata', monospace;
+}
+footer .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    direction: ltr;
+    flex-direction: row-reverse;
+}
+footer .myImg{
+    position: relative;
+    width: 195px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 70px 63px -60px #000;
+    cursor: pointer;
+}
+footer img{
+    position: absolute;
+    width: 195px;
+    right: 0;
+    transition: all 0.75s ease-in-out;
+}
+footer .myImg img:hover{
+    width: 398px;
+    right: -75px;
+}
+footer h3{
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--Font-color2);
+}
+footer h1 span {
+    font-weight: 500;
+    color: var(--Font-color2);
+}
+footer .container ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 38px 0px;
+}
+footer .container ul li{
+    width: 60px;
+    height: 60px;
+    background-color: var(--BackGround1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 24px;
+}
+footer .container ul li a{
+    color: var(--Font-color);
+}
 /* Small */
 @media only screen and (max-width: 768px){
     .new{
         margin: 0;
+    }
+    footer h1{
+        font-size: 24px;
+    }
+    footer .container{
+        flex-direction: column;
+    }
+    footer .container ul li {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
     }
 }
