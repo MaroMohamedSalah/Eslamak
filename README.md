@@ -1,4 +1,4 @@
-# سَبِح
+# سَبِح 
 
 this project was done in only one week!
 
@@ -20,3 +20,5 @@ this project was done in only one week!
 يعني مثلا حضرتك تقدر تصلي على النبي ٥٠ مرة مثلا و بعدين يجي وقت الصلاة ف تدخل على خاتمة الصلاة تخلصها و ترجع تاني هتلاقي ال ٥٠ زي ما هم 
 * ألوان لن تخرج عن ٦ الوان رئيسية (٣ للخط و ٣ للخلفيات) 
 و كلها الوان فيها طابع إسلامي و مريحة للعين
+
+لينك الموقع: https://maromohamedsalah.github.io/Eslamak/pages/tasbeeh.html
