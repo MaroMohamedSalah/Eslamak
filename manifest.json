@@ -5,8 +5,8 @@
 	"background_color": "#f6ab59",
 	"display": "standalone",
 	"orientation": "portrait",
-	"scope": "../Eslamak/pages/tasbeeh.html",
-	"start_url": "../Eslamak/pages/tasbeeh.html",
+	"scope": "../Eslamak/pages/index.html",
+	"start_url": "../Eslamak/pages/index.html",
 	"icons": [
 		{
 			"src": "img/icons/icon-72x72.png",
