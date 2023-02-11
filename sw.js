@@ -1,4 +1,4 @@
-const cacheName = "tasbeeh-v0";
+const cacheName = "tasbeeh-v1";
 assist = [
 	"./",
 	"./index.html",
@@ -25,13 +25,27 @@ self.addEventListener("install", (event) => {
 });
 
 // Activate sw
-self.addEventListener("activate", (activateEvent) => {
-	// Delete all old caches
-	caches.keys().then((keys) => {
-		return Promise.all(
-			keys.filter((key) => key != cacheName).map((key) => caches.delete(key))
-		);
-	});
+// self.addEventListener("activate", (activateEvent) => {
+// 	activateEvent.waitUntil(
+// 		caches.keys().then((keys) => {
+// 			return Promise.all(
+// 				keys.filter((key) => key != cacheName).map((key) => caches.delete(key))
+// 			);
+// 		})
+// 	);
+// });
+self.addEventListener("activate", function (event) {
+	event.waitUntil(
+		caches.keys().then((cacheNames) => {
+			return Promise.all(
+				cacheNames.map((cache) => {
+					if (cacheName !== cache && cache.startsWith("tasbeeh")) {
+						return caches.delete(cache);
+					}
+				})
+			);
+		})
+	);
 });
 
 // Responding with only cached resources

@@ -153,7 +153,7 @@ five.onclick = () => {
 	if (localStorage.getItem("Tasbeeh5")) {
 		addFromLocalStorage("Tasbeeh5");
 	} else {
-		Tasbeeh.count = "0";
+		Tasbeeh.count = 0;
 		Tasbeeh.text = "";
 		Tasbeeh.aim = "-";
 		pressText.textContent = Tasbeeh.text;
@@ -302,7 +302,7 @@ function handelColorChange() {
 
 // Install sw
 if (navigator.serviceWorker) {
-	addEventListener("load", () => {
+	window.addEventListener("load", () => {
 		navigator.serviceWorker
 			.register("./sw.js")
 			.then((reg) => console.log("service worker registed", reg))
