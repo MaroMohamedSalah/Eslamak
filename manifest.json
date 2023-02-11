@@ -5,8 +5,8 @@
 	"background_color": "#f6ab59",
 	"display": "standalone",
 	"orientation": "portrait",
-	"scope": "../Eslamak/index.html",
-	"start_url": "../Eslamak/index.html",
+	"scope": "../Eslamak/",
+	"start_url": "../Eslamak/",
 	"id": "./",
 	"description": "By Marwan Mohamed",
 	"icons": [
