@@ -21,4 +21,4 @@ this project was done in only one week!
 * ألوان لن تخرج عن ٦ الوان رئيسية (٣ للخط و ٣ للخلفيات) 
 و كلها الوان فيها طابع إسلامي و مريحة للعين
 
-لينك الموقع: https://maromohamedsalah.github.io/Eslamak/pages/tasbeeh.html
+لينك الموقع: https://maromohamedsalah.github.io/Eslamak/index.html
