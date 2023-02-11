@@ -7,6 +7,7 @@
 	"orientation": "portrait",
 	"scope": "../Eslamak/index.html",
 	"start_url": "../Eslamak/index.html",
+	"id": "./",
 	"description": "By Marwan Mohamed",
 	"icons": [
 		{
