@@ -8,7 +8,7 @@ assist = [
 	"./css/style.css",
 	"./img/nwdn_file_temp_1605338466849 copy.jpg",
 	"./img/📿.svg",
-	"./js/script.js",
+	"./script.js",
 	"./webfonts",
 	"./manifest.json",
 	"./sw.js",
