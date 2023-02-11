@@ -5,6 +5,7 @@ let one = document.getElementById("one");
 let two = document.getElementById("two");
 let three = document.getElementById("three");
 let four = document.getElementById("four");
+let five = document.getElementById("five");
 let count = document.getElementById("count");
 let aim = document.getElementById("aim");
 let press = document.getElementById("press");
@@ -27,6 +28,7 @@ let fdl = [
 	"عن أبي هريرة رضي الله عنه عن رسول الله- صلى الله عليه وسلم-: «مَنْ سَبَّحَ الله فِي دُبُرِ كُلِّ صَلاةٍ ثَلاثًا وَثَلاثِينَ، وَحَمِدَ الله ثَلاثًا وَثَلاثِينَ، وَكَبَّرَ الله ثَلاثًا وَثَلاثِينَ، فَتِلْكَ تِسْعَةٌ وَتِسْعُونَ، وَقَالَ تَمَامَ المِائَةِ: لا إلَهَ إلَّا الله وَحْدَهُ لا شَرِيكَ لَهُ، لَهُ الملْكُ وَلَهُ الحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَديرٌ غُفِرَتْ خَطَايَاهُ وَإنْ كَانَتْ مِثْلَ زَبَدِ البَحْرِ». أخرجه مسلم، ولكن إن كانت هناك صلوات فائتة فعلنا أن نقضيها أولًا ثم بعد ذلك نتفرغ لختم الصلاة.",
 	"قول رسول الله - صلى الله عليه وسلم-: «مَنْ قال لا إلهَ إلَّا اللهُ وحدَهُ لَا شرِيكَ لَهُ، لَهُ الملْكُ، ولَهُ الحمْدُ، وهُوَ عَلَى كُلِّ شيءٍ قديرٌ، فِي يومٍ مائَةَ مرةٍ، كانتْ لَهُ عِدْلَ عشرِ رقابٍ، وكُتِبَتْ لَهُ مائَةُ حسنَةٍ، ومُحِيَتْ عنه مائَةُ سيِّئَةٍ، وكانَتْ لَهُ حِرْزًا منَ الشيطانِ يَوْمَهُ ذَلِكَ حتى يُمْسِيَ، ولم يأتِ أحدٌ بأفضلَ مِمَّا جاءَ بِهِ، إلَّا أحدٌ عَمِلَ عملًا أكثرَ مِنْ ذلِكَ».",
 	"ورد عن الرسول صلى الله عليه وسلم أنه قال: (من قالَ سبحانَ اللهِ وبحمدهِ في يومٍ مائةُ مرَّةٍ حطتْ خطاياهُ وإن كانتْ مثلَ زبدِ البحرِ)",
+	"سبح بما تريد بدون هدف او عدد معين.",
 ];
 // return to zero
 returnToZero.onclick = () => {
@@ -59,6 +61,12 @@ if (localStorage.getItem("Tasbeeh4")) {
 	fadl.style.opacity = "0";
 	handelFadl(4);
 }
+if (localStorage.getItem("Tasbeeh5")) {
+	addFromLocalStorage("Tasbeeh5");
+	handelPressOne("Tasbeeh5");
+	fadl.style.opacity = "0";
+	handelFadl(5);
+}
 
 if (Tasbeeh.text === "" && Tasbeeh.count === 0 && Tasbeeh.aim === 0) {
 	main.style.display = "none";
@@ -85,8 +93,8 @@ one.onclick = () => {
 };
 two.onclick = () => {
 	main.style.display = "block";
-	if (localStorage.getItem("Tasbeeh4")) {
-		addFromLocalStorage("Tasbeeh4");
+	if (localStorage.getItem("Tasbeeh2")) {
+		addFromLocalStorage("Tasbeeh2");
 	} else {
 		Tasbeeh.count = "0";
 		Tasbeeh.text = "";
@@ -98,15 +106,15 @@ two.onclick = () => {
 			aim.textContent = Tasbeeh.aim;
 			count.textContent = Tasbeeh.count;
 		}, 300);
-		handelPressTwo("Tasbeeh4");
+		handelPressTwo("Tasbeeh2");
 	}
 	fadl.style.opacity = "0";
 	handelFadl(2);
 };
 three.onclick = () => {
 	main.style.display = "block";
-	if (localStorage.getItem("Tasbeeh2")) {
-		addFromLocalStorage("Tasbeeh2");
+	if (localStorage.getItem("Tasbeeh3")) {
+		addFromLocalStorage("Tasbeeh3");
 	} else {
 		Tasbeeh.count = "0";
 		Tasbeeh.text = "";
@@ -117,15 +125,15 @@ three.onclick = () => {
 		pressText.textContent = Tasbeeh.text;
 		aim.textContent = Tasbeeh.aim;
 		count.textContent = Tasbeeh.count;
-		handelPressOne("Tasbeeh2");
+		handelPressOne("Tasbeeh3");
 	}
 	fadl.style.opacity = "0";
 	handelFadl(3);
 };
 four.onclick = () => {
 	main.style.display = "block";
-	if (localStorage.getItem("Tasbeeh3")) {
-		addFromLocalStorage("Tasbeeh3");
+	if (localStorage.getItem("Tasbeeh4")) {
+		addFromLocalStorage("Tasbeeh4");
 	} else {
 		Tasbeeh.count = "0";
 		Tasbeeh.text = "";
@@ -135,10 +143,26 @@ four.onclick = () => {
 		pressText.textContent = Tasbeeh.text;
 		aim.textContent = Tasbeeh.aim;
 		count.textContent = Tasbeeh.count;
-		handelPressOne("Tasbeeh3");
+		handelPressOne("Tasbeeh4");
 	}
 	fadl.style.opacity = "0";
 	handelFadl(4);
+};
+five.onclick = () => {
+	main.style.display = "block";
+	if (localStorage.getItem("Tasbeeh5")) {
+		addFromLocalStorage("Tasbeeh5");
+	} else {
+		Tasbeeh.count = "0";
+		Tasbeeh.text = "";
+		Tasbeeh.aim = "-";
+		pressText.textContent = Tasbeeh.text;
+		aim.textContent = Tasbeeh.aim;
+		count.textContent = Tasbeeh.count;
+		handelPressThree("Tasbeeh5");
+	}
+	fadl.style.opacity = "0";
+	handelFadl(5);
 };
 function addToLocalStorage(params, name) {
 	localStorage.setItem(name, JSON.stringify(params));
@@ -158,16 +182,11 @@ function handelPressOne(name) {
 			addToLocalStorage(Tasbeeh, name);
 		}
 	};
-	// add new
-	newMain.onclick = () => {
-		newOne(name);
-	};
 }
+
 function handelPressTwo(name) {
-	console.log("handel two");
 	press.onclick = () => {
 		Tasbeeh.mainCount++;
-		console.log(Tasbeeh.mainCount);
 		fill.style.width = "100%";
 		fill.style.height = "100%";
 		setTimeout(() => {
@@ -213,6 +232,23 @@ function handelPressTwo(name) {
 			}
 			addToLocalStorage(Tasbeeh, name);
 		};
+	};
+}
+function handelPressThree(name) {
+	press.onclick = () => {
+		fill.style.width = "100%";
+		fill.style.height = "100%";
+		setTimeout(() => {
+			fill.style.width = "0";
+			fill.style.height = "0";
+		}, 300);
+		Tasbeeh.count++;
+		count.textContent = Tasbeeh.count;
+		addToLocalStorage(Tasbeeh, name);
+	};
+	// add new
+	newMain.onclick = () => {
+		newOne(name);
 	};
 }
 function addFromLocalStorage(key) {
