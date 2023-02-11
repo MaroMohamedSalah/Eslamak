@@ -24,10 +24,6 @@ self.addEventListener("install", (event) => {
 	);
 });
 
-// self.addEventListener("install", (event) => {
-// 	event.waitUntil(addResourcesToCache(assets));
-// });
-
 // // Activate sw
 // self.addEventListener("activate", (activateEvent) => {
 // 	// Delete all old caches
@@ -38,20 +34,21 @@ self.addEventListener("install", (event) => {
 // 	});
 // });
 
-// // fetch sw
-// self.addEventListener("fetch", (fetchEvent) => {
-// 	fetchEvent.respondWith(
-// 		caches.match(fetchEvent.request).then((res) => {
-// 			return (
-// 				res ||
-// 				fetch(fetchEvent.request).then((fetchRes) => {
-// 					if (!(fetchEvent.request.url.indexOf("http") === 0)) return;
-// 					return caches.open(cacheName).then((cache) => {
-// 						cache.put(fetchEvent.request, fetchRes.clone());
-// 						return fetchRes;
-// 					});
-// 				})
-// 			);
-// 		})
-// 	);
-// });
+// Responding with only cached resources
+// fetch sw
+self.addEventListener("fetch", (fetchEvent) => {
+	fetchEvent.respondWith(
+		caches.match(fetchEvent.request).then((res) => {
+			return (
+				res ||
+				fetch(fetchEvent.request).then((fetchRes) => {
+					if (!(fetchEvent.request.url.indexOf("http") === 0)) return;
+					return caches.open(cacheName).then((cache) => {
+						cache.put(fetchEvent.request, fetchRes.clone());
+						return fetchRes;
+					});
+				})
+			);
+		})
+	);
+});

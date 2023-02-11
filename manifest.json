@@ -1,12 +1,13 @@
 {
-	"name": "By Marwan Mohamed",
+	"name": "سبح",
 	"short_name": "سبح",
 	"theme_color": "#64da8a",
 	"background_color": "#f6ab59",
 	"display": "standalone",
 	"orientation": "portrait",
-	"scope": "../Eslamak/pages/index.html",
-	"start_url": "../Eslamak/pages/index.html",
+	"scope": "/",
+	"start_url": "../Eslamak/index.html",
+	"description": "By Marwan Mohamed",
 	"icons": [
 		{
 			"src": "img/icons/icon-72x72.png",

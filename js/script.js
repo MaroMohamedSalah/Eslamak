@@ -269,3 +269,21 @@ if (navigator.serviceWorker) {
 			.catch((err) => console.log(err));
 	});
 }
+
+// Trigger the prompt
+// let defferredPrompt;
+// window.addEventListener("beforeinstallprompt", (e) => {
+// 	console.log(e);
+// 	e.preventDefault();
+// 	defferredPrompt = e;
+// });
+// const handelClick = () => {
+// 	defferredPrompt.prompt();
+// 	defferredPrompt.userChoice.then((choiceResult) => {
+// 		if (choiceResult.outCome === "accepted") {
+// 			console.log("accepted");
+// 		}
+// 		defferredPrompt = null;
+// 	});
+// };
+// handelClick();
