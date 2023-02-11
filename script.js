@@ -181,6 +181,10 @@ function handelPressOne(name) {
 			count.textContent = Tasbeeh.count;
 			addToLocalStorage(Tasbeeh, name);
 		}
+		// add new
+		newMain.onclick = () => {
+			newOne(name);
+		};
 	};
 }
 
@@ -267,7 +271,7 @@ function newOne(params) {
 	window.scrollTo = 0;
 	setTimeout(() => {
 		location.reload();
-	}, 1000);
+	}, 500);
 }
 
 function handelFadl(secNum) {
