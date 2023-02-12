@@ -30,6 +30,11 @@ let fdl = [
 	"ورد عن الرسول صلى الله عليه وسلم أنه قال: (من قالَ سبحانَ اللهِ وبحمدهِ في يومٍ مائةُ مرَّةٍ حطتْ خطاياهُ وإن كانتْ مثلَ زبدِ البحرِ)",
 	"سبح بما تريد بدون هدف او عدد معين.",
 ];
+
+window.addEventListener("load", () => {
+	main.style.display = "none";
+});
+
 // return to zero
 returnToZero.onclick = () => {
 	Tasbeeh.count = 0;
@@ -170,6 +175,7 @@ function addToLocalStorage(params, name) {
 
 function handelPressOne(name) {
 	press.onclick = () => {
+		console.log("click 1");
 		fill.style.width = "100%";
 		fill.style.height = "100%";
 		setTimeout(() => {
@@ -190,6 +196,7 @@ function handelPressOne(name) {
 
 function handelPressTwo(name) {
 	press.onclick = () => {
+		console.log("click 2");
 		Tasbeeh.mainCount++;
 		fill.style.width = "100%";
 		fill.style.height = "100%";
@@ -240,6 +247,7 @@ function handelPressTwo(name) {
 }
 function handelPressThree(name) {
 	press.onclick = () => {
+		console.log("click 3");
 		fill.style.width = "100%";
 		fill.style.height = "100%";
 		setTimeout(() => {
@@ -260,7 +268,9 @@ function addFromLocalStorage(key) {
 	pressText.textContent = Tasbeeh.text;
 	aim.textContent = Tasbeeh.aim;
 	count.textContent = Tasbeeh.count;
-	handelPressOne(key);
+	if (key === "Tasbeeh5") {
+		handelPressThree(key);
+	}
 }
 
 function newOne(params) {
