@@ -182,7 +182,7 @@ function handelPressOne(name) {
 			fill.style.width = "0";
 			fill.style.height = "0";
 		}, 300);
-		if (Tasbeeh.count <= Tasbeeh.aim) {
+		if (Tasbeeh.count < Tasbeeh.aim) {
 			Tasbeeh.count++;
 			count.textContent = Tasbeeh.count;
 			addToLocalStorage(Tasbeeh, name);
