@@ -337,3 +337,35 @@ if (navigator.serviceWorker) {
 // 	});
 // };
 // handelClick();
+
+// detect time
+// function timeToAlert() {
+// 	alert("The time is 4:35 AM");
+// }
+// var timeIsBeing936 = new Date("04:38:00 PM").getTime(),
+// 	currentTime = new Date().getTime(),
+// 	subtractMilliSecondsValue = timeIsBeing936 - currentTime;
+// setTimeout(timeToAlert, subtractMilliSecondsValue);
+
+// display Notification
+const displayNotification = () => {
+	if (Notification.permission === "granted") {
+		const options = {
+			body: "Here is a notification body!",
+			icon: "./img/📿.svg",
+			vibrate: [100, 50, 100],
+			actions: [
+				{ action: "Yes", title: "Go to the site" },
+				{ action: "No", title: "still here" },
+			],
+		};
+		navigator.serviceWorker.getRegistration().then((reg) => {
+			reg.showNotification("Test Notifications!", options);
+		});
+	}
+};
+displayNotification();
+// add Notification
+Notification.requestPermission((status) => {
+	console.log("status", status);
+});
