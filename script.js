@@ -351,7 +351,7 @@ if (navigator.serviceWorker) {
 const displayNotification = () => {
 	if (Notification.permission === "granted") {
 		const options = {
-			body: "Here is a notification body!",
+			body: "مرحبا بك في سبح, هذا اشعار تجريبي ^_^.",
 			icon: "./img/📿.svg",
 			vibrate: [100, 50, 100],
 			actions: [
@@ -360,7 +360,7 @@ const displayNotification = () => {
 			],
 		};
 		navigator.serviceWorker.getRegistration().then((reg) => {
-			reg.showNotification("Test Notifications!", options);
+			reg.showNotification("اهلا بك", options);
 		});
 	}
 };
