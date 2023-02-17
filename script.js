@@ -6,6 +6,8 @@ let two = document.getElementById("two");
 let three = document.getElementById("three");
 let four = document.getElementById("four");
 let five = document.getElementById("five");
+let six = document.getElementById("six");
+let seven = document.getElementById("seven");
 let count = document.getElementById("count");
 let aim = document.getElementById("aim");
 let press = document.getElementById("press");
@@ -29,6 +31,7 @@ let fdl = [
 	"قول رسول الله - صلى الله عليه وسلم-: «مَنْ قال لا إلهَ إلَّا اللهُ وحدَهُ لَا شرِيكَ لَهُ، لَهُ الملْكُ، ولَهُ الحمْدُ، وهُوَ عَلَى كُلِّ شيءٍ قديرٌ، فِي يومٍ مائَةَ مرةٍ، كانتْ لَهُ عِدْلَ عشرِ رقابٍ، وكُتِبَتْ لَهُ مائَةُ حسنَةٍ، ومُحِيَتْ عنه مائَةُ سيِّئَةٍ، وكانَتْ لَهُ حِرْزًا منَ الشيطانِ يَوْمَهُ ذَلِكَ حتى يُمْسِيَ، ولم يأتِ أحدٌ بأفضلَ مِمَّا جاءَ بِهِ، إلَّا أحدٌ عَمِلَ عملًا أكثرَ مِنْ ذلِكَ».",
 	"ورد عن الرسول صلى الله عليه وسلم أنه قال: (من قالَ سبحانَ اللهِ وبحمدهِ في يومٍ مائةُ مرَّةٍ حطتْ خطاياهُ وإن كانتْ مثلَ زبدِ البحرِ)",
 	"سبح بما تريد بدون هدف او عدد معين.",
+	"أذكار الصباح",
 ];
 
 window.addEventListener("load", () => {
@@ -71,6 +74,12 @@ if (localStorage.getItem("Tasbeeh5")) {
 	handelPressOne("Tasbeeh5");
 	fadl.style.opacity = "0";
 	handelFadl(5);
+}
+if (localStorage.getItem("Tasbeeh6")) {
+	addFromLocalStorage("Tasbeeh6");
+	handelPressOne("Tasbeeh6");
+	fadl.style.opacity = "0";
+	handelFadl(6);
 }
 
 if (Tasbeeh.text === "" && Tasbeeh.count === 0 && Tasbeeh.aim === 0) {
@@ -167,7 +176,29 @@ five.onclick = () => {
 		handelPressThree("Tasbeeh5");
 	}
 	fadl.style.opacity = "0";
-	handelFadl(5);
+};
+six.onclick = () => {
+	main.style.display = "block";
+	if (localStorage.getItem("Tasbeeh6")) {
+		addFromLocalStorage("Tasbeeh6");
+	} else {
+		Tasbeeh.count = 0;
+		Tasbeeh.text =
+			"أَصبَحْنا على فِطرةِ الإسلامِ، وعلى كَلِمةِ الإخلاصِ، وعلى دِينِ نَبيِّنا محمَّدٍ صلَّى اللهُ عليه وسلَّمَ، وعلى مِلَّةِ أبِينا إبراهيمَ، حَنيفًا مُسلِمًا، وما كان مِنَ المُشرِكينَ";
+		Tasbeeh.aim = "1";
+		pressText.textContent = Tasbeeh.text;
+		aim.textContent = Tasbeeh.aim;
+		count.textContent = Tasbeeh.count;
+		// handel change in handel press 5
+		setInterval(() => {
+			pressText.textContent = Tasbeeh.text;
+			aim.textContent = Tasbeeh.aim;
+			count.textContent = Tasbeeh.count;
+		}, 300);
+		handelPressFour("Tasbeeh6");
+	}
+	fadl.style.opacity = "0";
+	handelFadl(6);
 };
 function addToLocalStorage(params, name) {
 	localStorage.setItem(name, JSON.stringify(params));
@@ -263,6 +294,198 @@ function handelPressThree(name) {
 		newOne(name);
 	};
 }
+function handelPressFour(name) {
+	press.onclick = () => {
+		console.log("click 4");
+		Tasbeeh.mainCount++;
+		fill.style.width = "100%";
+		fill.style.height = "100%";
+		setTimeout(() => {
+			fill.style.width = "0";
+			fill.style.height = "0";
+		}, 300);
+		if (Tasbeeh.count < Tasbeeh.aim) {
+			Tasbeeh.count++;
+			count.textContent = Tasbeeh.count;
+			switch (Tasbeeh.mainCount) {
+				case 1:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"بسمِ اللهِ الذي لا يَضرُ مع اسمِه شيءٌ في الأرضِ ولا في السماءِ وهو السميعُ العليمِ";
+					Tasbeeh.aim = 3;
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 4:
+					Tasbeeh.count = 0;
+					Tasbeeh.aim = 1;
+					Tasbeeh.text = "سبحانَ اللَّهِ وبحمدِه لا قوَّةَ إلَّا باللَّهِ";
+					fadl.textContent =
+						"فإنَّهُ من قالَها حينَ يصبِحُ حُفِظَ حتَّى يمسيَ ومن قالَها حينَ يمسي حُفِظَ حتَّى يصبِحَ";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 5:
+					Tasbeeh.count = 0;
+					Tasbeeh.text = "ما شاءَ اللَّهُ كانَ وما لم يشأ لم يَكن";
+					Tasbeeh.aim = 1;
+					fadl.textContent =
+						"فإنَّهُ من قالَها حينَ يصبِحُ حُفِظَ حتَّى يمسيَ ومن قالَها حينَ يمسي حُفِظَ حتَّى يصبِحَ";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 6:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"أعلمُ أنَّ اللَّهَ على كلِّ شيءٍ قديرٌ وأنَّ اللَّهَ قد أحاطَ بِكلِّ شيءٍ علمًا";
+					Tasbeeh.aim = 1;
+					fadl.textContent =
+						"فإنَّهُ من قالَها حينَ يصبِحُ حُفِظَ حتَّى يمسيَ ومن قالَها حينَ يمسي حُفِظَ حتَّى يصبِحَ";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 7:
+					Tasbeeh.count = 0;
+					Tasbeeh.text = "سبحانَ اللَّهِ وبحمدِهِ";
+					Tasbeeh.aim = 100;
+					fadl.textContent = "";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 107:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"اللَّهمَّ بِكَ أصبَحنا، وبِكَ أمسَينا، وبِكَ نحيا وبِكَ نموتُ وإليكَ المصيرُ، وإذا أمسَى فليقُلْ: اللَّهمَّ بِكَ أمسَينا وبِكَ أصبَحنا وبِكَ نحيا وبِكَ نموتُ وإليكَ النُّشورُ";
+					Tasbeeh.aim = 1;
+					fadl.textContent = "";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 108:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"رَضيتُ باللَّهِ ربًّا، وبالإسلامِ دينًا، وبِمُحمَّدٍ رسولً";
+					Tasbeeh.aim = 1;
+					fadl.textContent = "من قالها وجبت له الجنة";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 109:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"اللَّهمَّ عالِمَ الغَيبِ والشَّهادةِ، فاطرَ السَّمواتِ والأرضِ، رَبَّ كلِّ شيءٍ ومَليكَهُ، أشهدُ أن لا إلَهَ إلَّا أنتَ، أعوذُ بِكَ مِن شرِّ نفسي وشرِّ الشَّيطانِ وشِركِهِ، قلهُ إذا أصبَحتَ، وإذا أمسَيتَ، وإذا أخَذتَ مَضجعَكَ";
+					Tasbeeh.aim = 1;
+					fadl.textContent = "";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 110:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"اللَّهمَّ ما أصبحَ بي من نعمةٍ أو بأحدٍ من خلقِكَ فمنكَ وحدَكَ لا شريكَ لكَ فلكَ الحمدُ ولكَ الشُّكرُ";
+					Tasbeeh.aim = 1;
+					fadl.textContent =
+						"فمن قالها عندما يُصبح فقد أدَّى شكرَ يومِهِ، ومن قالَ مثلَ ذلكَ حينَ يمسي فقد أدَّى شكرَ ليلتِهِ";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 111:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"سُبْحَانَ اللهِ وَبِحَمْدِهِ، عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ";
+					Tasbeeh.aim = 3;
+					fadl.textContent = "";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 114:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"حَسبيَ اللهُ لا إلهَ إلَّا هو، عليه تَوكَّلْتُ، وهو ربُّ العَرشِ العَظيمِ";
+					Tasbeeh.aim = 7;
+					fadl.textContent =
+						"فمن قالها كَفاه اللهُ ما أهَمَّه من أمرِ الدُّنيا والآخِرةِ";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 121:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"اللَّهُمَّ إنِّي أصبَحتُ أُشهِدُك، وأُشهِدُ حَمَلةَ عَرشِكَ، ومَلائِكَتَك، وجميعَ خَلقِكَ: أنَّكَ أنتَ اللهُ لا إلهَ إلَّا أنتَ، وأنَّ مُحمَّدًا عبدُكَ ورسولُكَ";
+					Tasbeeh.aim = 1;
+					fadl.textContent = "";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 122:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"اللهمَّ ما أصبحَ بي منْ نعمةٍ أو بأحدٍ منْ خلقِكَ فمنكَ وحدكَ لا شريكَ لكَ، فلك الحمدُ ولك الشُّكر";
+					Tasbeeh.aim = 1;
+					fadl.textContent =
+						"من قالها حين يصبح وحين يمسي فقد أدى شكرَ ذلك اليومَ";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 123:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"أَصْـبَحْنا وَأَصْـبَحَ المُـلْكُ لله وَالحَمدُ لله، لا إلهَ إلاّ اللّهُ وَحدَهُ لا شَريكَ لهُ، لهُ المُـلكُ ولهُ الحَمْـد، وهُوَ على كلّ شَيءٍ قدير، رَبِّ أسْـأَلُـكَ خَـيرَ ما في هـذا اليوم وَخَـيرَ ما بَعْـدَه، وَأَعـوذُ بِكَ مِنْ شَـرِّ ما في هـذا اليوم وَشَرِّ ما بَعْـدَه، رَبِّ أَعـوذُ بِكَ مِنَ الْكَسَـلِ وَسـوءِ الْكِـبَر، رَبِّ أَعـوذُ بِكَ مِنْ عَـذابٍ في النّـارِ وَعَـذابٍ في القَـبْر";
+					Tasbeeh.aim = 1;
+					fadl.textContent = "";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 124:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ على نَبِيِّنَا مُحمَّد";
+					Tasbeeh.aim = 1;
+					fadl.textContent =
+						"فقد جاء في الحديث: (مَن صلى عَلَيَّ حين يُصْبِحُ عَشْرًا، وحين يُمْسِي عَشْرًا أَدْرَكَتْه شفاعتي يومَ القيامةِ";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 125:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"أستغفرُ اللهَ العظيمَ الذي لا إلهَ إلَّا هو الحيَّ القيومَ وأتوبُ إليه";
+					Tasbeeh.aim = 1;
+					fadl.textContent = "";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+				case 126:
+					Tasbeeh.count = 0;
+					Tasbeeh.text =
+						"لا إلهَ إلَّا اللهُ وحدَه لا شريكَ له له الملكُ وله الحمدُ وهو على كلِّ شيءٍ قديرٌ";
+					Tasbeeh.aim = 1;
+					fadl.textContent = "";
+					addToLocalStorage(Tasbeeh, name);
+					break;
+			}
+			// if (Tasbeeh.mainCount === 1) {
+			// 	Tasbeeh.count = 0;
+			// 	Tasbeeh.text =
+			// 		"بسمِ اللهِ الذي لا يَضرُ مع اسمِه شيءٌ في الأرضِ ولا في السماءِ وهو السميعُ العليمِ";
+			// 	addToLocalStorage(Tasbeeh, name);
+			// } else if (Tasbeeh.mainCount === 4) {
+			// 	Tasbeeh.count = 0;
+			// 	Tasbeeh.text = "سبحانَ اللَّهِ وبحمدِه لا قوَّةَ إلَّا باللَّهِ";
+			// 	addToLocalStorage(Tasbeeh, name);
+			// } else if (Tasbeeh.mainCount === 5) {
+			// 	Tasbeeh.count = 0;
+			// 	Tasbeeh.mainCount = 0;
+			// 	Tasbeeh.text = "ما شاءَ اللَّهُ كانَ وما لم يشأ لم يَكن";
+			// 	Tasbeeh.aim = 1;
+			// 	addToLocalStorage(Tasbeeh, name);
+			// }
+			addToLocalStorage(Tasbeeh, name);
+		}
+		// add new
+		newMain.onclick = () => {
+			newOne(name);
+		};
+		returnToZero.onclick = () => {
+			Tasbeeh.count = 0;
+			count.textContent = Tasbeeh.count;
+			if (Tasbeeh.mainCount < 33) {
+				Tasbeeh.mainCount = 0;
+			} else if (Tasbeeh.mainCount > 33) {
+				Tasbeeh.mainCount = 33;
+			} else if (Tasbeeh.mainCount > 66) {
+				Tasbeeh.mainCount = 66;
+			} else {
+				Tasbeeh.mainCount = 99;
+			}
+			addToLocalStorage(Tasbeeh, name);
+		};
+	};
+}
 function addFromLocalStorage(key) {
 	Tasbeeh = JSON.parse(localStorage.getItem(key));
 	pressText.textContent = Tasbeeh.text;
@@ -283,7 +506,6 @@ function newOne(params) {
 		location.reload();
 	}, 500);
 }
-
 function handelFadl(secNum) {
 	setTimeout(() => {
 		fadl.style.opacity = "1";
