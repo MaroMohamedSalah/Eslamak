@@ -309,6 +309,7 @@ function handelPressFour(name) {
 			count.textContent = Tasbeeh.count;
 			switch (Tasbeeh.mainCount) {
 				case 1:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"بسمِ اللهِ الذي لا يَضرُ مع اسمِه شيءٌ في الأرضِ ولا في السماءِ وهو السميعُ العليمِ";
@@ -316,6 +317,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 4:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.aim = 1;
 					Tasbeeh.text = "سبحانَ اللَّهِ وبحمدِه لا قوَّةَ إلَّا باللَّهِ";
@@ -448,22 +450,6 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 			}
-			// if (Tasbeeh.mainCount === 1) {
-			// 	Tasbeeh.count = 0;
-			// 	Tasbeeh.text =
-			// 		"بسمِ اللهِ الذي لا يَضرُ مع اسمِه شيءٌ في الأرضِ ولا في السماءِ وهو السميعُ العليمِ";
-			// 	addToLocalStorage(Tasbeeh, name);
-			// } else if (Tasbeeh.mainCount === 4) {
-			// 	Tasbeeh.count = 0;
-			// 	Tasbeeh.text = "سبحانَ اللَّهِ وبحمدِه لا قوَّةَ إلَّا باللَّهِ";
-			// 	addToLocalStorage(Tasbeeh, name);
-			// } else if (Tasbeeh.mainCount === 5) {
-			// 	Tasbeeh.count = 0;
-			// 	Tasbeeh.mainCount = 0;
-			// 	Tasbeeh.text = "ما شاءَ اللَّهُ كانَ وما لم يشأ لم يَكن";
-			// 	Tasbeeh.aim = 1;
-			// 	addToLocalStorage(Tasbeeh, name);
-			// }
 			addToLocalStorage(Tasbeeh, name);
 		}
 		// add new
@@ -591,3 +577,9 @@ displayNotification();
 Notification.requestPermission((status) => {
 	console.log("status", status);
 });
+
+// vibration
+const startVibrate = () => {
+	console.log("vibrate");
+	window.navigator.vibrate([200, 0, 100]);
+};
