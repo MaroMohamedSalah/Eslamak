@@ -1,4 +1,4 @@
-const cacheName = "tasbeeh-v25";
+const cacheName = "tasbeeh-v20";
 assist = [
 	"./",
 	"./index.html",
