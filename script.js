@@ -583,3 +583,4 @@ const startVibrate = () => {
 	console.log("vibrate");
 	window.navigator?.vibrate?.([200, 0, 100]);
 };
+startVibrate();
