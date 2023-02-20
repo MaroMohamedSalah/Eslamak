@@ -239,14 +239,17 @@ function handelPressTwo(name) {
 			Tasbeeh.count++;
 			count.textContent = Tasbeeh.count;
 			if (Tasbeeh.mainCount === 33) {
+				startVibrate();
 				Tasbeeh.count = 0;
 				Tasbeeh.text = "الحَمْـدُ لله";
 				addToLocalStorage(Tasbeeh, name);
 			} else if (Tasbeeh.mainCount === 66) {
+				startVibrate();
 				Tasbeeh.count = 0;
 				Tasbeeh.text = " اللهُ أكْـبَر";
 				addToLocalStorage(Tasbeeh, name);
 			} else if (Tasbeeh.mainCount === 99) {
+				startVibrate();
 				Tasbeeh.count = 0;
 				Tasbeeh.mainCount = 0;
 				Tasbeeh.text =
@@ -326,6 +329,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 5:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text = "ما شاءَ اللَّهُ كانَ وما لم يشأ لم يَكن";
 					Tasbeeh.aim = 1;
@@ -334,6 +338,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 6:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"أعلمُ أنَّ اللَّهَ على كلِّ شيءٍ قديرٌ وأنَّ اللَّهَ قد أحاطَ بِكلِّ شيءٍ علمًا";
@@ -343,6 +348,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 7:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text = "سبحانَ اللَّهِ وبحمدِهِ";
 					Tasbeeh.aim = 100;
@@ -350,6 +356,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 107:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"اللَّهمَّ بِكَ أصبَحنا، وبِكَ أمسَينا، وبِكَ نحيا وبِكَ نموتُ وإليكَ المصيرُ، وإذا أمسَى فليقُلْ: اللَّهمَّ بِكَ أمسَينا وبِكَ أصبَحنا وبِكَ نحيا وبِكَ نموتُ وإليكَ النُّشورُ";
@@ -358,6 +365,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 108:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"رَضيتُ باللَّهِ ربًّا، وبالإسلامِ دينًا، وبِمُحمَّدٍ رسولً";
@@ -366,6 +374,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 109:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"اللَّهمَّ عالِمَ الغَيبِ والشَّهادةِ، فاطرَ السَّمواتِ والأرضِ، رَبَّ كلِّ شيءٍ ومَليكَهُ، أشهدُ أن لا إلَهَ إلَّا أنتَ، أعوذُ بِكَ مِن شرِّ نفسي وشرِّ الشَّيطانِ وشِركِهِ، قلهُ إذا أصبَحتَ، وإذا أمسَيتَ، وإذا أخَذتَ مَضجعَكَ";
@@ -374,6 +383,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 110:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"اللَّهمَّ ما أصبحَ بي من نعمةٍ أو بأحدٍ من خلقِكَ فمنكَ وحدَكَ لا شريكَ لكَ فلكَ الحمدُ ولكَ الشُّكرُ";
@@ -383,6 +393,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 111:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"سُبْحَانَ اللهِ وَبِحَمْدِهِ، عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ";
@@ -391,6 +402,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 114:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"حَسبيَ اللهُ لا إلهَ إلَّا هو، عليه تَوكَّلْتُ، وهو ربُّ العَرشِ العَظيمِ";
@@ -400,6 +412,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 121:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"اللَّهُمَّ إنِّي أصبَحتُ أُشهِدُك، وأُشهِدُ حَمَلةَ عَرشِكَ، ومَلائِكَتَك، وجميعَ خَلقِكَ: أنَّكَ أنتَ اللهُ لا إلهَ إلَّا أنتَ، وأنَّ مُحمَّدًا عبدُكَ ورسولُكَ";
@@ -408,6 +421,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 122:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"اللهمَّ ما أصبحَ بي منْ نعمةٍ أو بأحدٍ منْ خلقِكَ فمنكَ وحدكَ لا شريكَ لكَ، فلك الحمدُ ولك الشُّكر";
@@ -417,6 +431,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 123:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"أَصْـبَحْنا وَأَصْـبَحَ المُـلْكُ لله وَالحَمدُ لله، لا إلهَ إلاّ اللّهُ وَحدَهُ لا شَريكَ لهُ، لهُ المُـلكُ ولهُ الحَمْـد، وهُوَ على كلّ شَيءٍ قدير، رَبِّ أسْـأَلُـكَ خَـيرَ ما في هـذا اليوم وَخَـيرَ ما بَعْـدَه، وَأَعـوذُ بِكَ مِنْ شَـرِّ ما في هـذا اليوم وَشَرِّ ما بَعْـدَه، رَبِّ أَعـوذُ بِكَ مِنَ الْكَسَـلِ وَسـوءِ الْكِـبَر، رَبِّ أَعـوذُ بِكَ مِنْ عَـذابٍ في النّـارِ وَعَـذابٍ في القَـبْر";
@@ -425,6 +440,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 124:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ على نَبِيِّنَا مُحمَّد";
@@ -434,6 +450,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 125:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"أستغفرُ اللهَ العظيمَ الذي لا إلهَ إلَّا هو الحيَّ القيومَ وأتوبُ إليه";
@@ -442,6 +459,7 @@ function handelPressFour(name) {
 					addToLocalStorage(Tasbeeh, name);
 					break;
 				case 126:
+					startVibrate();
 					Tasbeeh.count = 0;
 					Tasbeeh.text =
 						"لا إلهَ إلَّا اللهُ وحدَه لا شريكَ له له الملكُ وله الحمدُ وهو على كلِّ شيءٍ قديرٌ";
@@ -583,4 +601,4 @@ const startVibrate = () => {
 	console.log("vibrate");
 	window.navigator?.vibrate?.([200, 0, 100]);
 };
-startVibrate();
+// startVibrate();
