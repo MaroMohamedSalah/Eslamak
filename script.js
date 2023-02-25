@@ -674,3 +674,27 @@ const startVibrate = () => {
 	window.navigator?.vibrate?.([200, 0, 100]);
 };
 // startVibrate();
+
+// *********************** Add fire base to push notifications *****************************
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+	apiKey: "AIzaSyAG1BTDOSrJou5FpVV-83zKPYHCp219h4I",
+	authDomain: "sabah-d9ece.firebaseapp.com",
+	projectId: "sabah-d9ece",
+	storageBucket: "sabah-d9ece.appspot.com",
+	messagingSenderId: "484441706694",
+	appId: "1:484441706694:web:d8e1cf6563983053d587c7",
+	measurementId: "G-QX38DQ90V3",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
