@@ -649,20 +649,50 @@ if (navigator.serviceWorker) {
 const displayNotification = () => {
 	if (Notification.permission === "granted") {
 		const options = {
-			body: "مرحبا بك في سبح, هذا اشعار تجريبي ^_^.",
+			body: "لا تنسى اذكار الصباح❤️.",
 			icon: "./img/📿.svg",
 			vibrate: [100, 50, 100],
 			actions: [
-				{ action: "Yes", title: "Go to the site" },
-				{ action: "No", title: "still here" },
+				{ action: "yes", title: "اذكار الصباح" },
+				{ action: "No", title: "ليس الان" },
 			],
 		};
 		navigator.serviceWorker.getRegistration().then((reg) => {
-			reg.showNotification("اهلا بك", options);
+			reg.showNotification("Welcome", options);
 		});
 	}
 };
+// Function to schedule the notification at 9:30 PM every day
+// Using chatGPT
+function scheduleNotification() {
+	var now = new Date();
+	var notificationTime = new Date(
+		now.getFullYear(),
+		now.getMonth(),
+		now.getDate(),
+		5, // 5 PM in 24-hour format
+		0 // 00 minutes past the hour
+	);
+	if (notificationTime < now) {
+		// If the notification time has already passed today, schedule it for tomorrow
+		notificationTime.setDate(notificationTime.getDate() + 1);
+	}
+	var delay = notificationTime.getTime() - now.getTime();
+	setTimeout(function () {
+		displayNotification();
+		// Schedule the next notification for the next day
+		scheduleNotification();
+	}, delay);
+}
+
+// Call the scheduleNotification function to start scheduling notifications
+scheduleNotification();
+const contactMe = () => {
+	window.location.href = "https://wa.me201102654851";
+};
+// test
 displayNotification();
+
 // add Notification
 Notification.requestPermission((status) => {
 	console.log("status", status);
@@ -673,28 +703,3 @@ const startVibrate = () => {
 	console.log("vibrate");
 	window.navigator?.vibrate?.([200, 0, 100]);
 };
-// startVibrate();
-
-// *********************** Add fire base to push notifications *****************************
-
-// // Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
-
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-// 	apiKey: "AIzaSyAG1BTDOSrJou5FpVV-83zKPYHCp219h4I",
-// 	authDomain: "sabah-d9ece.firebaseapp.com",
-// 	projectId: "sabah-d9ece",
-// 	storageBucket: "sabah-d9ece.appspot.com",
-// 	messagingSenderId: "484441706694",
-// 	appId: "1:484441706694:web:d8e1cf6563983053d587c7",
-// 	measurementId: "G-QX38DQ90V3",
-// };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);

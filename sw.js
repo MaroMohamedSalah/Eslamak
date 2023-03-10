@@ -1,4 +1,4 @@
-const cacheName = "tasbeeh-v34";
+const cacheName = "tasbeeh-v40";
 assist = [
 	"./",
 	"./index.html",
@@ -56,4 +56,16 @@ self.addEventListener("fetch", (fetchEvent) => {
 			);
 		})
 	);
+});
+
+// Add an event listener for notification actions
+// chatGPT
+self.addEventListener("notificationclick", function (event) {
+	if (event.action === "yes") {
+		// Open the app's site in a new window
+		event.waitUntil(clients.openWindow("./index.html"));
+	} else if (event.action === "no") {
+		console.log("User clicked the 'ليس الان' button.");
+	}
+	event.notification.close();
 });
