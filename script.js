@@ -618,33 +618,6 @@ if (navigator.serviceWorker) {
 	});
 }
 
-// Trigger the prompt
-// let defferredPrompt;
-// window.addEventListener("beforeinstallprompt", (e) => {
-// 	console.log(e);
-// 	e.preventDefault();
-// 	defferredPrompt = e;
-// });
-// const handelClick = () => {
-// 	defferredPrompt.prompt();
-// 	defferredPrompt.userChoice.then((choiceResult) => {
-// 		if (choiceResult.outCome === "accepted") {
-// 			console.log("accepted");
-// 		}
-// 		defferredPrompt = null;
-// 	});
-// };
-// handelClick();
-
-// detect time
-// function timeToAlert() {
-// 	alert("The time is 4:35 AM");
-// }
-// var timeIsBeing936 = new Date("04:38:00 PM").getTime(),
-// 	currentTime = new Date().getTime(),
-// 	subtractMilliSecondsValue = timeIsBeing936 - currentTime;
-// setTimeout(timeToAlert, subtractMilliSecondsValue);
-
 // display Notification
 const displayNotification = () => {
 	if (Notification.permission === "granted") {
