@@ -1,5 +1,5 @@
 importScripts("https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js");
-const cacheName = "tasbeeh-v46";
+const cacheName = "tasbeeh-v47";
 assist = [
 	"./",
 	"./index.html",
@@ -16,6 +16,7 @@ assist = [
 ];
 // add assist in the caches
 self.addEventListener("install", (event) => {
+	console.log("installed");
 	event.waitUntil(
 		caches
 			.open(cacheName)
@@ -26,6 +27,7 @@ self.addEventListener("install", (event) => {
 
 // Activate sw
 self.addEventListener("activate", function (event) {
+	console.log("activated");
 	event.waitUntil(
 		caches.keys().then((cacheNames) => {
 			return Promise.all(
@@ -41,6 +43,7 @@ self.addEventListener("activate", function (event) {
 // Responding with only cached resources
 // fetch sw
 self.addEventListener("fetch", (fetchEvent) => {
+	console.log("fetch done");
 	fetchEvent.respondWith(
 		caches.match(fetchEvent.request).then((res) => {
 			return (
