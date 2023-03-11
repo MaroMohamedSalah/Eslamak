@@ -1,4 +1,5 @@
-const cacheName = "tasbeeh-v45";
+importScripts("https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js");
+const cacheName = "tasbeeh-v46";
 assist = [
 	"./",
 	"./index.html",
@@ -36,6 +37,16 @@ self.addEventListener("activate", function (event) {
 			);
 		})
 	);
+});
+self.addEventListener("activate", (event) => {
+	event.waitUntil(self.clients.claim());
+	OneSignal.init({
+		appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
+		safari_web_id: "web.onesignal.auto.2ce6e088-bd06-4a6b-8c58-d83c247eb259",
+		notifyButton: {
+			enable: true,
+		},
+	});
 });
 
 // Responding with only cached resources
