@@ -670,8 +670,8 @@ function scheduleNotification() {
 		now.getFullYear(),
 		now.getMonth(),
 		now.getDate(),
-		5, // 5 PM in 24-hour format
-		0 // 00 minutes past the hour
+		11, // 5 PM in 24-hour format
+		20 // 00 minutes past the hour
 	);
 	if (notificationTime < now) {
 		// If the notification time has already passed today, schedule it for tomorrow
@@ -690,9 +690,6 @@ scheduleNotification();
 const contactMe = () => {
 	window.location.href = "https://wa.me201102654851";
 };
-// test
-displayNotification();
-
 // add Notification
 Notification.requestPermission((status) => {
 	console.log("status", status);

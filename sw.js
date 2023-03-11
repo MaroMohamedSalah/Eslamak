@@ -1,4 +1,4 @@
-const cacheName = "tasbeeh-v40";
+const cacheName = "tasbeeh-v41";
 assist = [
 	"./",
 	"./index.html",
@@ -61,7 +61,7 @@ self.addEventListener("fetch", (fetchEvent) => {
 // Add an event listener for notification actions
 // chatGPT
 self.addEventListener("notificationclick", function (event) {
-	if (event.action === "yes") {
+	if (event.action === "yes" || event.action === "") {
 		// Open the app's site in a new window
 		event.waitUntil(clients.openWindow("./index.html"));
 	} else if (event.action === "no") {
