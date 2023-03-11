@@ -661,7 +661,7 @@ function scheduleNotification() {
 // Call the scheduleNotification function to start scheduling notifications
 // scheduleNotification();
 
-setTimeout(() => {
+setInterval(() => {
 	displayNotification();
 }, 5000);
 
