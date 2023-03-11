@@ -1,4 +1,3 @@
-importScripts("https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js");
 const cacheName = "tasbeeh-v47";
 assist = [
 	"./",
