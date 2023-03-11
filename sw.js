@@ -1,4 +1,5 @@
-const cacheName = "tasbeeh-v47";
+importScripts("https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js");
+const cacheName = "tasbeeh-v48";
 assist = [
 	"./",
 	"./index.html",
@@ -36,6 +37,11 @@ self.addEventListener("activate", function (event) {
 					}
 				})
 			);
+		})
+	);
+	event.waitUntil(
+		self.OneSignal.init({
+			appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
 		})
 	);
 });
@@ -78,4 +84,10 @@ self.addEventListener("notificationclick", function (event) {
 		console.log("User clicked the 'ليس الان' button.");
 	}
 	event.notification.close();
+});
+
+OneSignal.push(() => {
+	OneSignal.init({
+		appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
+	});
 });
