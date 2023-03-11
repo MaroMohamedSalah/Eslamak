@@ -644,7 +644,7 @@ function scheduleNotification() {
 		now.getMonth(),
 		now.getDate(),
 		11, // 5 PM in 24-hour format
-		25 // 00 minutes past the hour
+		41 // 00 minutes past the hour
 	);
 	if (notificationTime < now) {
 		// If the notification time has already passed today, schedule it for tomorrow
