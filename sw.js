@@ -1,4 +1,4 @@
-const cacheName = "tasbeeh-v48";
+const cacheName = "tasbeeh-v45";
 assist = [
 	"./",
 	"./index.html",
@@ -13,7 +13,6 @@ assist = [
 	"./manifest.json",
 	"./sw.js",
 ];
-
 // add assist in the caches
 self.addEventListener("install", (event) => {
 	event.waitUntil(
