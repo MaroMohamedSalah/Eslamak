@@ -45,18 +45,27 @@ self.addEventListener("activate", function (event) {
 self.addEventListener("fetch", (fetchEvent) => {
 	console.log("fetch done");
 	fetchEvent.respondWith(
-		caches.match(fetchEvent.request).then((res) => {
-			return (
-				res ||
-				fetch(fetchEvent.request).then((fetchRes) => {
-					if (!(fetchEvent.request.url.indexOf("http") === 0)) return;
-					return caches.open(cacheName).then((cache) => {
-						cache.put(fetchEvent.request, fetchRes.clone());
-						return fetchRes;
-					});
-				})
-			);
-		})
+		caches
+			.match(fetchEvent.request)
+			.then((res) => {
+				return (
+					res ||
+					fetch(fetchEvent.request)
+						.then((fetchRes) => {
+							if (!(fetchEvent.request.url.indexOf("http") === 0)) return;
+							return caches.open(cacheName).then((cache) => {
+								cache.put(fetchEvent.request, fetchRes.clone());
+								return fetchRes;
+							});
+						})
+						.catch((err) => {
+							console.error("Error fetching:", err);
+						})
+				);
+			})
+			.catch((err) => {
+				console.error("Error caching:", err);
+			})
 	);
 });
 
