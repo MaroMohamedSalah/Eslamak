@@ -612,7 +612,7 @@ function handelColorChange() {
 if (navigator.serviceWorker) {
 	window.addEventListener("load", () => {
 		navigator.serviceWorker
-			.register("./sw.js")
+			.register("./OneSignalSDKWorker.js")
 			.then((reg) => console.log("service worker registed", reg))
 			.catch((err) => console.log(err));
 	});
