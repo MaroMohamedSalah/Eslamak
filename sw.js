@@ -1,5 +1,5 @@
-importScripts("https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js");
-const cacheName = "tasbeeh-v45";
+// importScripts("https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js");
+const cacheName = "tasbeeh-v48";
 assist = [
 	"./",
 	"./index.html",
@@ -39,11 +39,11 @@ self.addEventListener("activate", function (event) {
 			);
 		})
 	);
-	event.waitUntil(
-		self.OneSignal.init({
-			appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
-		})
-	);
+	// event.waitUntil(
+	// 	self.OneSignal.init({
+	// 		appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
+	// 	})
+	// );
 });
 // Responding with only cached resources
 // fetch sw
@@ -86,8 +86,8 @@ self.addEventListener("notificationclick", function (event) {
 	event.notification.close();
 });
 
-OneSignal.push(() => {
-	OneSignal.init({
-		appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
-	});
-});
+// OneSignal.push(() => {
+// 	OneSignal.init({
+// 		appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
+// 	});
+// });

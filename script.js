@@ -609,14 +609,14 @@ function handelColorChange() {
 }
 
 // Install sw
-if (navigator.serviceWorker) {
-	window.addEventListener("load", () => {
-		navigator.serviceWorker
-			.register("./sw.js")
-			.then((reg) => console.log("service worker registed", reg))
-			.catch((err) => console.log(err));
-	});
-}
+// if (navigator.serviceWorker) {
+// 	window.addEventListener("load", () => {
+// 		navigator.serviceWorker
+// 			.register("./sw.js")
+// 			.then((reg) => console.log("service worker registed", reg))
+// 			.catch((err) => console.log(err));
+// 	});
+// }
 
 // display Notification
 const displayNotification = () => {
