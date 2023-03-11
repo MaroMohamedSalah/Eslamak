@@ -28,36 +28,6 @@
     <link rel="icon" href="./img/icons/icon-128x128.png">
     <!-- add manifest -->
     <link rel="manifest" href="manifest.json">
-
-    <!-- One signal  -->
-    <!-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-    <script>
-        window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function () {
-            OneSignal.init({
-                appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
-                safari_web_id: "web.onesignal.auto.2ce6e088-bd06-4a6b-8c58-d83c247eb259",
-                notifyButton: {
-                    enable: true,
-                },
-                // Set up service worker path
-                serviceWorkerPath: '/OneSignalSDKWorker.js',
-            });
-        });
-    </script> -->
-    <!-- Register service worker -->
-    <!-- <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function () {
-                navigator.serviceWorker.register('./sw.js').then(function (registration) {
-                    console.log('Service worker registered:', registration);
-                }).catch(function (error) {
-                    console.log('Service worker registration failed:', error);
-                });
-            });
-        }
-    </script> -->
-
     <!-- OneSignal -->
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <script>
@@ -70,7 +40,7 @@
                     enable: true,
                 },
                 // Set up service worker path
-                serviceWorkerPath: './OneSignalSDKWorker.js',
+                serviceWorkerPath: './sw.js',
             });
         });
     </script>
