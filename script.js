@@ -659,11 +659,11 @@ function scheduleNotification() {
 }
 
 // Call the scheduleNotification function to start scheduling notifications
-// scheduleNotification();
+scheduleNotification();
 
-setInterval(() => {
-	displayNotification();
-}, 5000);
+// setInterval(() => {
+// 	displayNotification();
+// }, 5000);
 
 const contactMe = () => {
 	window.location.href = "https://wa.me201102654851";
