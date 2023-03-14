@@ -1,5 +1,3 @@
-importScripts("./sw.js", "./OneSignalSDKWorker.js");
-
 // selection
 let body = document.querySelector("body");
 let main = document.getElementById("main");
@@ -611,13 +609,40 @@ function handelColorChange() {
 }
 
 // Install sw
-if (navigator.serviceWorker) {
-	window.addEventListener("load", () => {
-		navigator.serviceWorker
-			.register("./sw.js")
-			.then((reg) => console.log("service worker registed", reg))
-			.catch((err) => console.log(err));
-	});
+// if (navigator.serviceWorker) {
+// 	window.addEventListener("load", () => {
+// 		navigator.serviceWorker
+// 			.register("./sw.js")
+// 			.then((reg) => console.log("service worker registed", reg))
+// 			.catch((err) => console.log(err));
+// 	});
+// }
+if ("serviceWorker" in navigator) {
+	// Register PWA service worker
+	navigator.serviceWorker.register("./sw.js").then(
+		function (registration) {
+			console.log(
+				"PWA Service worker registration successful, scope is:",
+				registration.scope
+			);
+		},
+		function (err) {
+			console.log("PWA Service worker registration failed, error:", err);
+		}
+	);
+
+	// Register OneSignal service worker
+	navigator.serviceWorker.register("./OneSignalSDKWorker.js").then(
+		function (registration) {
+			console.log(
+				"OneSignal Service worker registration successful, scope is:",
+				registration.scope
+			);
+		},
+		function (err) {
+			console.log("OneSignal Service worker registration failed, error:", err);
+		}
+	);
 }
 // OneSignal.init({
 // 	appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
