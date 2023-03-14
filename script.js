@@ -609,14 +609,14 @@ function handelColorChange() {
 }
 
 // Install sw
-// if (navigator.serviceWorker) {
-// 	window.addEventListener("load", () => {
-// 		navigator.serviceWorker
-// 			.register("./sw.js")
-// 			.then((reg) => console.log("service worker registed", reg))
-// 			.catch((err) => console.log(err));
-// 	});
-// }
+if (navigator.serviceWorker) {
+	window.addEventListener("load", () => {
+		navigator.serviceWorker
+			.register("./sw.js")
+			.then((reg) => console.log("service worker registed", reg))
+			.catch((err) => console.log(err));
+	});
+}
 // OneSignal.init({
 // 	appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
 // 	safari_web_id: "web.onesignal.auto.2ce6e088-bd06-4a6b-8c58-d83c247eb259",
