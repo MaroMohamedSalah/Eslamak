@@ -610,14 +610,14 @@ function handelColorChange() {
 
 document.addEventListener("load", function () {
 	// Install sw
-	// if (navigator.serviceWorker) {
-	// 	window.addEventListener("load", () => {
-	// 		navigator.serviceWorker
-	// 			.register("./sw.js")
-	// 			.then((reg) => console.log("service worker registed", reg))
-	// 			.catch((err) => console.log(err));
-	// 	});
-	// }
+	if (navigator.serviceWorker) {
+		window.addEventListener("load", () => {
+			navigator.serviceWorker
+				.register("./sw.js")
+				.then((reg) => console.log("service worker registed", reg))
+				.catch((err) => console.log(err));
+		});
+	}
 	if ("serviceWorker" in navigator) {
 		// Register PWA service worker
 		navigator.serviceWorker.register("./sw.js").then(
