@@ -633,20 +633,20 @@ document.addEventListener("load", function () {
 		);
 
 		// Register OneSignal service worker
-		navigator.serviceWorker.register("./OneSignalSDKWorker.js").then(
-			function (registration) {
-				console.log(
-					"OneSignal Service worker registration successful, scope is:",
-					registration.scope
-				);
-			},
-			function (err) {
-				console.log(
-					"OneSignal Service worker registration failed, error:",
-					err
-				);
-			}
-		);
+		// navigator.serviceWorker.register("./OneSignalSDKWorker.js").then(
+		// 	function (registration) {
+		// 		console.log(
+		// 			"OneSignal Service worker registration successful, scope is:",
+		// 			registration.scope
+		// 		);
+		// 	},
+		// 	function (err) {
+		// 		console.log(
+		// 			"OneSignal Service worker registration failed, error:",
+		// 			err
+		// 		);
+		// 	}
+		// );
 	}
 });
 // OneSignal.init({
