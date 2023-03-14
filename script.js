@@ -1,3 +1,5 @@
+importScripts("./sw.js", "./OneSignalSDKWorker.js");
+
 // selection
 let body = document.querySelector("body");
 let main = document.getElementById("main");
