@@ -1,6 +1,6 @@
 // importScripts("https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js");
 importScripts("./sw.js", "./OneSignalSDKWorker.js");
-const cacheName = "tasbeeh-v46";
+const cacheName1 = "tasbeeh-v46";
 assist = [
 	"./",
 	"./index.html",
@@ -20,7 +20,7 @@ self.addEventListener("install", (event) => {
 	console.log("installed");
 	event.waitUntil(
 		caches
-			.open(cacheName)
+			.open(cacheName1)
 			.then((cache) => cache.addAll(assist))
 			.catch((err) => console.log(err))
 	);
@@ -30,10 +30,10 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", function (event) {
 	console.log("activated");
 	event.waitUntil(
-		caches.keys().then((cacheNames) => {
+		caches.keys().then((cacheName1s) => {
 			return Promise.all(
-				cacheNames.map((cache) => {
-					if (cacheName !== cache && cache.startsWith("tasbeeh")) {
+				cacheName1s.map((cache) => {
+					if (cacheName1 !== cache && cache.startsWith("tasbeeh")) {
 						return caches.delete(cache);
 					}
 				})
@@ -54,7 +54,7 @@ self.addEventListener("fetch", (fetchEvent) => {
 					fetch(fetchEvent.request)
 						.then((fetchRes) => {
 							if (!(fetchEvent.request.url.indexOf("http") === 0)) return;
-							return caches.open(cacheName).then((cache) => {
+							return caches.open(cacheName1).then((cache) => {
 								cache.put(fetchEvent.request, fetchRes.clone());
 								return fetchRes;
 							});
@@ -84,7 +84,7 @@ self.addEventListener("fetch", (fetchEvent) => {
 // 					fetchResponse.type === "basic"
 // 				) {
 // 					var responseToCache = fetchResponse.clone();
-// 					caches.open(cacheName).then(function (cache) {
+// 					caches.open(cacheName1).then(function (cache) {
 // 						cache.put(event.request, responseToCache);
 // 					});
 // 				}
