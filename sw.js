@@ -1,5 +1,5 @@
 // importScripts("https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js");
-const cacheName1 = "tasbeeh-v46";
+const cacheName1 = "tasbeeh-v47";
 assist = [
 	"./",
 	"./index.html",
