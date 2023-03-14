@@ -43,30 +43,54 @@ self.addEventListener("activate", function (event) {
 });
 // Responding with only cached resources
 // fetch sw
-self.addEventListener("fetch", (fetchEvent) => {
-	console.log("fetch done");
-	fetchEvent.respondWith(
-		caches
-			.match(fetchEvent.request)
-			.then((res) => {
-				return (
-					res ||
-					fetch(fetchEvent.request)
-						.then((fetchRes) => {
-							if (!(fetchEvent.request.url.indexOf("http") === 0)) return;
-							return caches.open(cacheName).then((cache) => {
-								cache.put(fetchEvent.request, fetchRes.clone());
-								return fetchRes;
-							});
-						})
-						.catch((err) => {
-							console.error("Error fetching:", err);
-						})
-				);
-			})
-			.catch((err) => {
-				console.error("Error caching:", err);
-			})
+// self.addEventListener("fetch", (fetchEvent) => {
+// 	console.log("fetch done");
+// 	fetchEvent.respondWith(
+// 		caches
+// 			.match(fetchEvent.request)
+// 			.then((res) => {
+// 				return (
+// 					res ||
+// 					fetch(fetchEvent.request)
+// 						.then((fetchRes) => {
+// 							if (!(fetchEvent.request.url.indexOf("http") === 0)) return;
+// 							return caches.open(cacheName).then((cache) => {
+// 								cache.put(fetchEvent.request, fetchRes.clone());
+// 								return fetchRes;
+// 							});
+// 						})
+// 						.catch((err) => {
+// 							console.error("Error fetching:", err);
+// 						})
+// 				);
+// 			})
+// 			.catch((err) => {
+// 				console.error("Error caching:", err);
+// 			})
+// 	);
+// });
+self.addEventListener("fetch", function (event) {
+	event.respondWith(
+		caches.match(event.request).then(function (response) {
+			if (response) {
+				return response;
+			}
+			var fetchRequest = event.request.clone();
+			return fetch(fetchRequest).then(function (fetchResponse) {
+				if (
+					fetchEvent.request.method === "GET" &&
+					fetchResponse &&
+					fetchResponse.status === 200 &&
+					fetchResponse.type === "basic"
+				) {
+					var responseToCache = fetchResponse.clone();
+					caches.open(cacheName).then(function (cache) {
+						cache.put(event.request, responseToCache);
+					});
+				}
+				return fetchResponse;
+			});
+		})
 	);
 });
 
