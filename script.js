@@ -657,18 +657,16 @@ const displayNotification = () => {
 
 // for test
 function scheduleNotification() {
-	const now = new Date();
-	const notificationTime = new Date(
-		now.getFullYear(),
-		now.getMonth(),
-		now.getDate(),
-		0,
-		0,
-		30
-	);
-	const delay = notificationTime.getTime() - now.getTime();
+	// Set the notification time to 10 seconds from now
+	const notificationTime = new Date(Date.now() + 20000);
+
+	// Calculate the delay until the notification time
+	const delay = notificationTime - Date.now();
+
+	// Schedule the notification
 	setTimeout(() => {
 		displayNotification();
+		scheduleNotification(); // Schedule the next notification
 	}, delay);
 }
 
