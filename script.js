@@ -616,14 +616,6 @@ if (navigator.serviceWorker) {
 			.catch((err) => console.log(err));
 	});
 }
-// OneSignal.init({
-// 	appId: "3e518465-85ed-45d0-ad16-f293f0d6d02c",
-// 	safari_web_id: "web.onesignal.auto.2ce6e088-bd06-4a6b-8c58-d83c247eb259",
-// 	notifyButton: {
-// 		enable: true,
-// 	},
-// });
-
 // display Notification
 const displayNotification = () => {
 	if (Notification.permission === "granted") {
@@ -641,26 +633,42 @@ const displayNotification = () => {
 		});
 	}
 };
-// Function to schedule the notification at 9:30 PM every day
-// Using chatGPT
+// Function to schedule the notification at 5:00 AM every day
+// const scheduleNotification = () => {
+// 	// Set the notification time to 5:00 AM
+// 	const notificationTime = new Date();
+// 	notificationTime.setHours(5, 0, 0, 0);
+
+// 	// Calculate the time until the next notification
+// 	let delay = notificationTime.getTime() - Date.now();
+// 	if (delay < 0) {
+// 		// If the notification time has already passed today, schedule it for tomorrow
+// 		delay += 24 * 60 * 60 * 1000;
+// 	}
+
+// 	// Schedule the first notification
+// 	displayNotification();
+
+// 	// Schedule subsequent notifications at the same time every day
+// 	setInterval(() => {
+// 		displayNotification();
+// 	}, 24 * 60 * 60 * 1000);
+// };
+
+// for test
 function scheduleNotification() {
-	var now = new Date();
-	var notificationTime = new Date(
+	const now = new Date();
+	const notificationTime = new Date(
 		now.getFullYear(),
 		now.getMonth(),
 		now.getDate(),
-		5, // 5 AM in 24-hour format
-		00 // 00 minutes past the hour
+		0,
+		0,
+		30
 	);
-	if (notificationTime < now) {
-		// If the notification time has already passed today, schedule it for tomorrow
-		notificationTime.setDate(notificationTime.getDate() + 1);
-	}
-	var delay = notificationTime.getTime() - now.getTime();
-	setTimeout(function () {
+	const delay = notificationTime.getTime() - now.getTime();
+	setTimeout(() => {
 		displayNotification();
-		// Schedule the next notification for the next day
-		scheduleNotification();
 	}, delay);
 }
 

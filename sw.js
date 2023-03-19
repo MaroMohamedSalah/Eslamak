@@ -68,30 +68,6 @@ self.addEventListener("fetch", (fetchEvent) => {
 			})
 	);
 });
-// self.addEventListener("fetch", function (event) {
-// 	event.respondWith(
-// 		caches.match(event.request).then(function (response) {
-// 			if (response) {
-// 				return response;
-// 			}
-// 			var fetchRequest = event.request.clone();
-// 			return fetch(fetchRequest).then(function (fetchResponse) {
-// 				if (
-// 					fetchEvent.request.method === "GET" &&
-// 					fetchResponse &&
-// 					fetchResponse.status === 200 &&
-// 					fetchResponse.type === "basic"
-// 				) {
-// 					var responseToCache = fetchResponse.clone();
-// 					caches.open(cacheName1).then(function (cache) {
-// 						cache.put(event.request, responseToCache);
-// 					});
-// 				}
-// 				return fetchResponse;
-// 			});
-// 		})
-// 	);
-// });
 
 // Add an event listener for notification actions
 // chatGPT
